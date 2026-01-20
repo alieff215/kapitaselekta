@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartAgri - Solusi Pertanian Masa Depan</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .landing-body {
+            background: #0f141a;
+            color: #e6edf3;
+            font-family: 'Inter', sans-serif;
+        }
+        .landing-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e6edf3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo svg { color: #238636; }
+        .nav-links a {
+            color: #8b949e;
+            text-decoration: none;
+            margin-left: 24px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #e6edf3; }
+        .btn-primary {
+            background: #238636;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover { background: #2ea043; }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            background: linear-gradient(90deg, #e6edf3, #8b949e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #8b949e;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .feature-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.2s;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(35, 134, 54, 0.15);
+            color: #3fb950;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 { margin-top: 0; }
+        .feature-card p { color: #8b949e; line-height: 1.5; }
+    </style>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // If user is already logged in, redirect to dashboard
+        (async function() {
+            const user = await Auth.check();
+            if (user) {
+                window.location.href = 'index.html';
+            }
+        })();
+    </script>
+</head>
+<body class="landing-body">
+    <nav class="landing-nav">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            SmartAgri
+        </div>
+        <div class="nav-links">
+            <a href="login.html">Masuk</a>
+            <a href="register.html" class="btn-primary">Daftar Sekarang</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Optimalkan Hasil Panen dengan Data Presisi</h1>
+        <p>Platform monitoring pertanian berbasis satelit dan sensor IoT untuk membantu Anda mengambil keputusan yang lebih cerdas, hemat biaya, dan ramah lingkungan.</p>
+        <a href="register.html" class="btn-primary" style="font-size: 18px; padding: 14px 28px;">Mulai Gratis</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v5"/><path d="M3 12h18v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Z"/><path d="M12 12v9"/></svg>
+            </div>
+            <h3>Monitoring Real-time</h3>
+            <p>Pantau kesehatan tanaman (NDVI), kelembaban tanah, dan suhu lahan Anda secara langsung dari dashboard interaktif.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="m12 14-4-4"/><path d="m10 16-2 3"/><path d="m14 16 2 3"/><path d="m5.2 6.2 1.4 1.4"/><path d="m13 11-1-1-1 1-4-4a4.8 4.8 0 0 1 7-7 4.8 4.8 0 0 1 1 6.8Z"/><path d="m17.4 7.6 1.4-1.4"/><path d="m2 2 20 20"/></svg>
+            </div>
+            <h3>Deteksi Hama Dini</h3>
+            <p>Algoritma cerdas kami mendeteksi potensi serangan hama sebelum menyebar luas, menyelamatkan hasil panen Anda.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </div>
+            <h3>Laporan Analitik</h3>
+            <p>Dapatkan wawasan mendalam melalui laporan mingguan dan bulanan untuk perencanaan musim tanam berikutnya.</p>
+        </div>
+    </section>
+</body>
+</html>

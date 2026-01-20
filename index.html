@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SmartAgri Dashboard</title>
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="assets/js/auth.js"></script>
+<script>Auth.requireAuth();</script>
+</head>
+<body>
+<div id="app" class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="brand-icon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      <span>SmartAgri</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Dashboard
+      </a>
+      <a href="map.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+        Peta Lahan
+      </a>
+      <a href="reports.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Laporan
+      </a>
+      <a href="settings.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Pengaturan
+      </a>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="top-header">
+      <div class="header-title">
+        <h1>Overview Lahan</h1>
+        <p class="subtitle">Monitoring kesehatan tanaman real-time</p>
+      </div>
+      <div class="header-actions">
+        <div class="date-display">11 Jan 2026</div>
+        <div class="user-menu-container">
+            <div class="user-avatar" id="userMenuBtn">AD</div>
+            <div class="dropdown-menu" id="userDropdown">
+                <div style="padding: 10px 16px; font-weight:600; border-bottom:1px solid var(--border-color); margin-bottom:4px; color: var(--text-primary);">
+                    <span id="dropdown-user-name">User</span>
+                </div>
+                <a href="settings.html" class="dropdown-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    Pengaturan
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" onclick="Auth.logout(); return false;" class="dropdown-item" style="color: var(--danger-color);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    Keluar
+                </a>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-grid">
+      <!-- Main Visual -->
+      <div class="preview-section">
+         <div class="section-header">
+            <h3>Peta Kesehatan Tanaman</h3>
+            <div class="actions">
+                <button class="icon-btn" id="btn-refresh" title="Refresh Data">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                </button>
+                <a href="map.html" class="icon-btn" title="Buka Peta Lengkap">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                </a>
+            </div>
+         </div>
+         <div class="canvas-wrapper">
+             <canvas id="previewCanvas" class="preview-canvas"></canvas>
+         </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+             <span class="stat-label">Rata-rata NDVI</span>
+             <div class="stat-icon ndvi-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+             </div>
+          </div>
+          <div class="stat-value" id="avg-ndvi">-</div>
+          <div class="progress-container">
+             <div class="progress"><div class="bar bar-ndvi" id="bar-ndvi"></div></div>
+             <div class="progress-labels"><span>Buruk</span><span>Baik</span></div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+             <span class="stat-label">Kelembaban Tanah</span>
+             <div class="stat-icon moist-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+             </div>
+          </div>
+          <div class="stat-value" id="avg-moist">-</div>
+           <div class="progress-container">
+             <div class="progress"><div class="bar bar-moist" id="bar-moist"></div></div>
+             <div class="progress-labels"><span>Kering</span><span>Basah</span></div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+             <span class="stat-label">Suhu Area</span>
+             <div class="stat-icon temp-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
+             </div>
+          </div>
+          <div class="stat-value" id="avg-temp">-</div>
+           <div class="progress-container">
+             <div class="progress"><div class="bar bar-temp" id="bar-temp"></div></div>
+             <div class="progress-labels"><span>Dingin</span><span>Panas</span></div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+             <span class="stat-label">Insiden Hama</span>
+             <div class="stat-icon pest-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="m12 14-4-4"/><path d="m10 16-2 3"/><path d="m14 16 2 3"/><path d="m5.2 6.2 1.4 1.4"/><path d="m13 11-1-1-1 1-4-4a4.8 4.8 0 0 1 7-7 4.8 4.8 0 0 1 1 6.8Z"/><path d="m17.4 7.6 1.4-1.4"/><path d="m2 2 20 20"/></svg>
+             </div>
+          </div>
+          <div class="stat-value" id="pest-count">-</div>
+           <div class="progress-container">
+             <div class="progress"><div class="bar bar-pest" id="bar-pest"></div></div>
+             <div class="progress-labels"><span>Rendah</span><span>Tinggi</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+ const farmBounds = { sw: { lat: -7.79, lng: 110.34 }, ne: { lat: -7.71, lng: 110.42 } };
+ function seedRandom(seed) { let x = Math.imul(seed ^ 0x9e3779b9, 0x85ebca6b); return function(){ x ^= x >>> 15; x = Math.imul(x, 0x2c1b3c6d) ^ Math.imul(x ^ (x >>> 7), 0x297a2d39); return ((x >>> 0) % 1000000) / 1000000; }; }
+ function smoothValue(lat, lng, rand) { const r = rand(); const a = Math.sin(lat * 2.7) * 0.5 + Math.cos(lng * 1.9) * 0.5; const b = Math.sin(lat * 0.6 + lng * 0.8) * 0.5 + 0.5; return (a * 0.6 + b * 0.4) * 0.7 + r * 0.3; }
+ function generateGrid(rows, cols, seedBase) {
+   const latStep = (farmBounds.ne.lat - farmBounds.sw.lat) / rows;
+   const lngStep = (farmBounds.ne.lng - farmBounds.sw.lng) / cols;
+   const rand = seedRandom(seedBase);
+   const out = [];
+   for (let r = 0; r < rows; r++) {
+     for (let c = 0; c < cols; c++) {
+       const lat1 = farmBounds.sw.lat + r * latStep;
+       const lat2 = lat1 + latStep;
+       const lng1 = farmBounds.sw.lng + c * lngStep;
+       const lng2 = lng1 + lngStep;
+       const clat = (lat1 + lat2) / 2;
+       const clng = (lng1 + lng2) / 2;
+       const base = smoothValue(clat, clng, rand);
+       const ndvi = Math.max(-0.2, Math.min(0.9, (base - 0.2) * 1.2));
+       const moisture = Math.max(0, Math.min(1, base * 0.8 + 0.1));
+       const temp = 20 + base * 18;
+       out.push({ ndvi, moisture, temp });
+     }
+   }
+   return out;
+ }
+ function generatePests(n) { const pests = []; const rand = seedRandom(9876); for (let i = 0; i < n; i++) { const lat = farmBounds.sw.lat + rand() * (farmBounds.ne.lat - farmBounds.sw.lat); const lng = farmBounds.sw.lng + rand() * (farmBounds.ne.lng - farmBounds.sw.lng); const severity = 1 + Math.floor(rand() * 3); pests.push({ lat, lng, severity }); } return pests; }
+ function fmtPercent(v){ return (v*100).toFixed(0) + '%'; }
+ function ndviColor(v) {
+   const nv = Math.max(0, Math.min(1, (v + 0.2) / 1.1));
+   const r = Math.round(139 + (0 - 139) * nv);
+   const g = Math.round(0 + (100 - 0) * nv);
+   const y = Math.round(102 + (255 - 102) * nv);
+   const mixR = Math.round(r * 0.5 + y * 0.5);
+   const mixG = Math.round(g * 0.5 + y * 0.5);
+   return `rgb(${mixR},${mixG},0)`;
+ }
+ const cells = generateGrid(22, 22, 12345);
+ const avgNdvi = cells.reduce((s,x)=>s+x.ndvi,0)/cells.length;
+ const avgMoist = cells.reduce((s,x)=>s+x.moisture,0)/cells.length;
+ const avgTemp = cells.reduce((s,x)=>s+x.temp,0)/cells.length;
+ const pests = generatePests(28);
+ document.getElementById('avg-ndvi').textContent = avgNdvi.toFixed(2);
+ document.getElementById('avg-moist').textContent = fmtPercent(avgMoist);
+ document.getElementById('avg-temp').textContent = avgTemp.toFixed(1) + '°C';
+ document.getElementById('pest-count').textContent = Math.round(pests.length / (22*22) * 100) + '%';
+ document.getElementById('bar-ndvi').style.width = (Math.max(0, Math.min(1, (avgNdvi + 0.2) / 1.1)) * 100).toFixed(0) + '%';
+ document.getElementById('bar-moist').style.width = (avgMoist * 100).toFixed(0) + '%';
+ document.getElementById('bar-temp').style.width = (Math.max(0, Math.min(1, (avgTemp - 20) / 18)) * 100).toFixed(0) + '%';
+ document.getElementById('bar-pest').style.width = (Math.min(100, Math.round(pests.length / (22*22) * 100))) + '%';
+ // Canvas preview
+ const canvas = document.getElementById('previewCanvas');
+ function drawPreview(seed){
+   const w = canvas.clientWidth || 600; const h = canvas.clientHeight || 400;
+   canvas.width = w; canvas.height = h;
+   const ctx = canvas.getContext('2d');
+   const rows = 30, cols = 30; const rand = seedRandom(seed);
+   for (let r=0;r<rows;r++){
+     for(let c=0;c<cols;c++){
+       const lat = farmBounds.sw.lat + (r/rows)*(farmBounds.ne.lat - farmBounds.sw.lat);
+       const lng = farmBounds.sw.lng + (c/cols)*(farmBounds.ne.lng - farmBounds.sw.lng);
+       const base = smoothValue(lat, lng, rand);
+       const ndvi = Math.max(-0.2, Math.min(0.9, (base - 0.2) * 1.2));
+       ctx.fillStyle = ndviColor(ndvi);
+       const cw = w/cols, ch = h/rows;
+       ctx.fillRect(c*cw, r*ch, cw+1, ch+1);
+     }
+   }
+ }
+ drawPreview(12345);
+ document.getElementById('btn-refresh').addEventListener('click', ()=>{
+   drawPreview(Math.floor(Math.random()*100000));
+ });
+</script>
+<script src="assets/js/dropdown.js"></script>
+</body>
+</html>

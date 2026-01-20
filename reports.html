@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Laporan - SmartAgri</title>
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="assets/js/auth.js"></script>
+<script>Auth.requireAuth();</script>
+</head>
+<body>
+<div id="app" class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="brand-icon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      <span>SmartAgri</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Dashboard
+      </a>
+      <a href="map.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+        Peta Lahan
+      </a>
+      <a href="reports.html" class="nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Laporan
+      </a>
+      <a href="settings.html" class="nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Pengaturan
+      </a>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="top-header">
+      <div class="header-title">
+        <h1>Laporan Mingguan</h1>
+        <p class="subtitle">Rekapitulasi data kesehatan lahan Anda</p>
+      </div>
+      <div class="header-actions">
+        <div class="date-display" id="date-display">11 Jan 2026</div>
+        <div class="user-menu-container">
+            <div class="user-avatar" id="userMenuBtn">AD</div>
+            <div class="dropdown-menu" id="userDropdown">
+                <div style="padding: 10px 16px; font-weight:600; border-bottom:1px solid var(--border-color); margin-bottom:4px; color: var(--text-primary);">
+                    <span id="dropdown-user-name">User</span>
+                </div>
+                <a href="settings.html" class="dropdown-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    Pengaturan
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" onclick="Auth.logout(); return false;" class="dropdown-item" style="color: var(--danger-color);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    Keluar
+                </a>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-grid" style="grid-template-columns: 1fr;">
+      <div class="card" style="padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 12px;">
+         <div style="display:flex; justify-content:space-between; margin-bottom:20px;">
+            <h3 style="margin:0;">Riwayat Analisis</h3>
+            <button class="tool-btn" style="background:#238636; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer;">Unduh PDF</button>
+         </div>
+         <table style="width:100%; border-collapse: collapse; text-align: left; font-size: 14px;">
+            <thead>
+               <tr style="border-bottom: 1px solid #30363d; color: #8b949e;">
+                  <th style="padding: 12px;">Tanggal</th>
+                  <th style="padding: 12px;">NDVI Rata-rata</th>
+                  <th style="padding: 12px;">Kelembaban</th>
+                  <th style="padding: 12px;">Status Hama</th>
+                  <th style="padding: 12px;">Status</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr style="border-bottom: 1px solid #222b36;">
+                  <td style="padding: 12px;">11 Jan 2026</td>
+                  <td style="padding: 12px;">0.72</td>
+                  <td style="padding: 12px;">65%</td>
+                  <td style="padding: 12px;"><span style="color:#ff8c00">Sedang</span></td>
+                  <td style="padding: 12px;"><span style="background:rgba(35,134,54,0.2); color:#3fb950; padding:4px 8px; border-radius:12px; font-size:12px;">Selesai</span></td>
+               </tr>
+               <tr style="border-bottom: 1px solid #222b36;">
+                  <td style="padding: 12px;">04 Jan 2026</td>
+                  <td style="padding: 12px;">0.68</td>
+                  <td style="padding: 12px;">58%</td>
+                  <td style="padding: 12px;"><span style="color:#3fb950">Aman</span></td>
+                  <td style="padding: 12px;"><span style="background:rgba(35,134,54,0.2); color:#3fb950; padding:4px 8px; border-radius:12px; font-size:12px;">Selesai</span></td>
+               </tr>
+               <tr style="border-bottom: 1px solid #222b36;">
+                  <td style="padding: 12px;">28 Des 2025</td>
+                  <td style="padding: 12px;">0.65</td>
+                  <td style="padding: 12px;">55%</td>
+                  <td style="padding: 12px;"><span style="color:#3fb950">Aman</span></td>
+                  <td style="padding: 12px;"><span style="background:rgba(35,134,54,0.2); color:#3fb950; padding:4px 8px; border-radius:12px; font-size:12px;">Selesai</span></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/js/dropdown.js"></script>
+</body>
+</html>
